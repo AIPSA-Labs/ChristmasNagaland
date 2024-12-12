@@ -4,9 +4,56 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  background-color: rgb(2,0,36);
+  background-color: linear-gradient(0deg, rgba(2,0,36,1) 19%, rgba(8,8,110,1) 58%);
+  overflow-x: hidden;
+  color: white;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+.bg{
+  background-image: url('./app/assets/bg.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.moving {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  animation: moveHorizontally 30s linear infinite;
+}
+
+@keyframes moveHorizontally {
+  from {
+    transform: translate(-100%,-30%);
   }
+  to {
+    transform: translate(200%,-70%);
+  }
+}
+
+.tree {
+  background-image: url('app/assets/tree.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  background-position: bottom;
+  background-size: contain;
+  background-position-x: right;
+}
+
+.glass {
+background: rgba(255, 255, 255, 0.17);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.8px);
+-webkit-backdrop-filter: blur(7.8px);
+border: 1px solid rgba(255, 255, 255, 0.36);
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
 }
