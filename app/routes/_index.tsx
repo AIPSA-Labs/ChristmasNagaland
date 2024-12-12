@@ -12,9 +12,9 @@ export default function Index() {
   return (
     <div className="w-screen h-screen bg overflow-hidden">
       <Snowfall />
-      <img src="app/assets/santa.png" alt="santa" className="moving md:w-1/2"/>
+      <img src="/santa.png" alt="santa" className="moving md:w-1/2"/>
       <div className="flex justify-center items-center mt-10 flex-col">
-      <img src="app/assets/Logo.png" alt="logo" className="h-36 w-36"/>
+      <img src="/Logo.png" alt="logo" className="h-36 w-36"/>
       <p className="text-8xl font-bold text-white text-center font-script">Merry Christmas</p>
       <p className="text-center text-white font-bold stroke-black stroke-2 p-4">Wishing educators, students, and supporters a joyous Christmas filled with peace, love, and happiness. <br/> Let’s continue spreading the light of education and the spirit of togetherness.</p>
       <a href="https://allindiaprivateschools.org" className="text-white px-6 pt-2 pb-3 active:text-black active:bg-blue-200 bg-black rounded-full">Learn More</a>
@@ -24,7 +24,7 @@ export default function Index() {
         <a href="/card" className="px-6 bg-black pb-3 pt-2 rounded-full">Send wish</a>
       </div>
       </div>
-      {/* <audio src="app/assets/merry_christmas.mp3" loop autoPlay></audio> */}
+      <audio src="/merry_christmas.mp3" loop autoPlay></audio> 
     </div>
   );
 }

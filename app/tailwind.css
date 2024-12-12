@@ -11,7 +11,7 @@ body {
 }
 
 .bg{
-  background-image: url('./app/assets/bg.png');
+  background-image: url('/bg.png');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -36,7 +36,7 @@ body {
 }
 
 .tree {
-  background-image: url('app/assets/tree.png');
+  background-image: url('/tree.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100%;

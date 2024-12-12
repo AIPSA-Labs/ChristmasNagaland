@@ -79,7 +79,7 @@ function Gift() {
                 onClick={() => setOffer(parseInt(items.id))}
               >
                 <img
-                  src="app/assets/dec.png"
+                  src="/dec.png"
                   alt="decorator"
                   className="h-36 mr-2"
                 />
@@ -118,8 +118,8 @@ function Gift() {
       </div>
 
       <div className="flex justify-end tree items-end">
-        <img src="app/assets/box.png" alt="box" className="h-[120px]" />
-        <img src="app/assets/giftbox.png" alt="giftbox" className="h-[150px]" />
+        <img src="/box.png" alt="box" className="h-[120px]" />
+        <img src="/giftbox.png" alt="giftbox" className="h-[150px]" />
       </div>
     </div>
   );
