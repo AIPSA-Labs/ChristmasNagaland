@@ -1,5 +1,4 @@
 import type { MetaFunction } from "@remix-run/node";
-import { useEffect, useState } from "react";
 import Snowfall from "react-snowfall";
 
 export const meta: MetaFunction = () => {

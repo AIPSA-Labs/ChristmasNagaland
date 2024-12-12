@@ -19,7 +19,8 @@ function Card() {
                 </div>
                 </div>
             ))}
-            <ChristmasCard/>
+            <ChristmasCard data={`${data.wishes.Family[1]}`} name="Sando Philip"/>
+
         </div>
      );
 }

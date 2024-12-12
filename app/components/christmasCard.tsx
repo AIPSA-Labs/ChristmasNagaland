@@ -1,7 +1,12 @@
 import { useState } from "react";
 import '../styles/christmas.css';
 
-const ChristmasCard: React.FC = () => {
+interface ChristmasCardProps {
+    data: string;
+    name: string;
+  }
+
+  const ChristmasCard: React.FC<ChristmasCardProps> = ({ data, name })  => {
     const [isOpened, setIsOpened] = useState(false);
   
     const handleCardClick = () => {
@@ -11,11 +16,12 @@ const ChristmasCard: React.FC = () => {
     return (
       <div className="overflow-hidden">
       
-        <div className={`card ${isOpened ? 'is-opened' : 'is-hidden'}`} onClick={handleCardClick} >
+        <div className={`card hidden md:block ${isOpened ? 'is-opened' : 'is-hidden'}`} onClick={handleCardClick} >
     <div className="card-page cart-page-front">
         
         <div className="card-page cart-page-outside"></div>
         <div className="card-page cart-page-inside">
+			
           <span className="merry-christmas">
 <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
 	 width="540.054px" height="551.88px" viewBox="0 0 540.054 551.88" enable-background="new 0 0 540.054 551.88"
@@ -184,11 +190,31 @@ const ChristmasCard: React.FC = () => {
         </div>
     </div>
     <div className="card-page cart-page-bottom">
-      <p>Lorem ipsum dolor.<br/>
-      Sit Amet</p>
+        <div>
+      <p className="text-red-500">Dear {name}<br/>
+     </p> <p className="text-2xl"> {data}</p>
+	 <div className="flex justify-between m-4 ">
+            <a className="bg-gray-400 px-4 py-2 rounded-full" href="https://allindiaprivateschools.org">Learn More</a>
+            <a className="bg-gray-400 px-4 py-2 rounded-full" href="/">Send a Card</a>
+            </div>
+	 </div>
+	 
     </div>
   </div>
-
+  <div className="flip-card md:hidden">
+    <div className="flip-card-inner">
+        <div className="flip-card-front">
+        </div>
+        <div className="flip-card-back">
+            <p className="title text-red-600">Dear {name}</p>
+            <p className="text-black">{data}</p>
+            <div className="flex justify-between m-4 ">
+            <a className="bg-gray-400 px-4 py-2 rounded-full" href="https://allindiaprivateschools.org">Learn More</a>
+            <a className="bg-gray-400 px-4 py-2 rounded-full" href="/">Send a Card</a>
+            </div>
+        </div>
+    </div>
+</div>
   <span className="click-icon" onClick={handleCardClick}>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M31.6 17.7V26c0 1.9-.7 3.7-2 5.1v.9c0 1.6-1.3 3-3 3h-8.4c-1.6 0-3-1.3-3-3 0-.6.5-1 1-1s1 .4 1 1c0 .5.4 1 1 1h8.4c.5 0 1-.4 1-1v-1.2-.3-.1c0-.1.1-.2.2-.3 1.1-1.1 1.7-2.5 1.7-4v-8.3c0-.3-.1-.5-.3-.7-.1-.1-.5-.4-1-.3-.4.1-.8.6-.8 1.1v2.4c0 .6-.5 1-1 1s-1-.4-1-1v-5.5c0-.3-.1-.5-.3-.7s-.4-.3-.7-.3c-.5 0-1 .5-1 1v5.5c0 .6-.5 1-1 1s-1-.4-1-1v-8.5c0-.3-.1-.5-.3-.7s-.4-.3-.7-.3c-.5 0-1 .5-1 1v8.5c0 .6-.5 1-1 1s-1-.4-1-1V7.7c0-.3-.1-.5-.3-.7-.1-.1-.5-.4-1-.3-.4.1-.8.6-.8 1.1V20c0 .4-.2.8-.6.9-.4.2-.8.1-1.1-.2L11 18.1c-.6-.6-1.6-.6-2.2.1-.5.6-.4 1.5.2 2.1l7 7c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3-.3 0-.5-.1-.7-.3l-7-7.1c-1.3-1.3-1.5-3.5-.3-4.8C8 16 9 15.5 10 15.5c.9 0 1.8.4 2.5 1l.9.9V7.9c0-1.4.9-2.7 2.3-3 1-.3 2.1 0 2.8.8.6.6.9 1.3.9 2.1V9c.3-.1.7-.2 1-.2.8 0 1.5.3 2.1.9s.9 1.3.9 2.1v.2c.3-.1.7-.2 1-.2.8 0 1.5.3 2.1.9s.9 1.3.9 2.1v.2c.1 0 .2-.1.3-.1 1-.3 2.1 0 2.8.8.8.5 1.1 1.3 1.1 2z"/></svg>
   </span>
