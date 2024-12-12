@@ -1,4 +1,5 @@
 import Snowfall from "react-snowfall";
+import ChristmasCard from "~/components/christmasCard";
 
 type WishesKeys = keyof typeof data.wishes;
 
@@ -18,6 +19,7 @@ function Card() {
                 </div>
                 </div>
             ))}
+            <ChristmasCard/>
         </div>
      );
 }
