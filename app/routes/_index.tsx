@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useEffect, useState } from "react";
 import Snowfall from "react-snowfall";
 
 export const meta: MetaFunction = () => {
@@ -9,8 +10,16 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playAudio = () => {
+    const audio = document.getElementById("audio") as HTMLAudioElement;
+    audio.play();
+    setIsPlaying(true);
+  };
+  
   return (
-    <div className="w-screen h-screen bg overflow-hidden">
+    <div className="w-screen h-screen bg overflow-hidden" onMouseEnter={playAudio}>
       <Snowfall />
       <img src="/santa.png" alt="santa" className="moving md:w-1/2"/>
       <div className="flex justify-center items-center mt-10 flex-col">
@@ -24,7 +33,7 @@ export default function Index() {
         <a href="/card" className="px-6 bg-black pb-3 pt-2 rounded-full">Send wish</a>
       </div>
       </div>
-      <audio src="/merry_christmas.mp3" loop autoPlay></audio> 
+      <audio src="/merry_christmas.mp3" autoPlay loop ></audio> 
     </div>
   );
 }
