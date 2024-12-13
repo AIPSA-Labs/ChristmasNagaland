@@ -16,20 +16,18 @@ function Gift() {
         <img src="/box.png" alt="box" className="h-[120px]" />
         <img src="/giftbox.png" alt="giftbox" className="h-[150px]" />
       </div>
-      {!name || !gift ? (
+      {(!name || !gift) ? (
         <GiftCreation />
       ) : (
         <div>
           <div className="container">
             <div className="back">
               <div className="topTriangle"></div>
-            </div>
-
+            </div> 
             <div className="card">
               <div className="title1">{data.montessoriOffers[datanum ? datanum : 0].title}</div>
               <div className="text-xl md:text-2xl">{data.montessoriOffers[datanum ? datanum : 0].description}</div>
             </div>
-
             <div className="front_container">
               <div className="front p-6">
                 <p>From</p>
