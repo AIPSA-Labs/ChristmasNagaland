@@ -28,7 +28,7 @@ function GiftCreation() {
 
   async function handleShare() {
     const origin = window.location.origin;
-    const link = `${origin}/g?n=${inputName}&g=${offer}`;
+    const link = `${origin}/gift?n=${inputName}&g=${offer}`;
     if (!navigator.share) {
       alert("Not supported in your browser.");
       return;

@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/cloudflare";
 import Snowfall from "react-snowfall";
 
 export const meta: MetaFunction = () => {
@@ -27,6 +27,19 @@ export default function Index() {
       </div>
       <iframe src="/merry_christmas.mp3" allow="autoPlay"  className="hidden" id="iframeAudio">
 </iframe> 
+<div className="flex justify-center">
+<a href="/luckydraw" className="btn p-2">
+  <strong>Participate Lucky Draw</strong>
+  <div id="container-stars">
+    <div id="stars"></div>
+  </div>
+
+  <div id="glow">
+    <div className="circle"></div>
+    <div className="circle"></div>
+  </div>
+</a>
+</div>
     </div>
   );
 }
