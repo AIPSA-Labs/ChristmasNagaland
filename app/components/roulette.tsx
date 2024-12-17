@@ -8,7 +8,7 @@ function LuckyDraw() {
         id="arrow"
         height={80}
         width={80}
-        className="fixed top-3 left-1/2 transform -translate-x-1/2 z-40 -rotate-45 "
+        className="fixed top-1/4 md:top-3 left-1/2 transform -translate-x-1/2 z-10 -rotate-45 "
       />
     <Circle sections={8}/>
   </div> );
