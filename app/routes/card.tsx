@@ -7,7 +7,7 @@ import ChristmasCard from "~/components/christmasCard";
 type WishesKeys = keyof typeof data.wishes;
 const categoryMap: Record<string, keyof typeof data.wishes> = {
   g: "General",
-  fr: "Friends",
+  m: "Mates",
   f: "Family",
   k: "Kids",
   r: "Religious",
@@ -123,7 +123,7 @@ const data = {
       "Merry Christmas! Here’s to a joyous and prosperous New Year ahead.",
       "May your Christmas be full of love, laughter, and cherished moments.",
     ],
-    Friends: [
+    Mates: [
       "Wishing you a season full of love, friendship, and cheer.",
       "Friends like you make the holidays even more special. Merry Christmas!",
       "May our friendship grow stronger this holiday season. Merry Christmas!",

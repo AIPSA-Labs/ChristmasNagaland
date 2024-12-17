@@ -20,7 +20,8 @@ const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
     const origin = window.location.origin;
     const link = `${origin}/card?c=${letter}${index}&n=`;
     const input = document.getElementById('share-link') as HTMLInputElement
-    input.value = link
+    input.value = link.toLowerCase()
+    setIsActive(false)
   }
 
   return (
@@ -35,7 +36,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
       {isActive && (
         <div className="accordion-content">
           {content.map((item, index) => (
-            <p onClick={() => handleClick(item,index)} className="m-2 rounded-2xl cursor-pointer text-black p-2  backdrop-blur-2xl">
+            <p onClick={() => handleClick(title,index + 1)} className="m-2 rounded-2xl cursor-pointer text-black p-2  backdrop-blur-2xl">
               ✩ {item} 
             </p>
           ))}
