@@ -1,4 +1,5 @@
 import { useSearchParams } from "@remix-run/react";
+import { useState } from "react";
 import Snowfall from "react-snowfall";
 import Accordion from "~/components/accordion";
 import ChristmasCard from "~/components/christmasCard";
@@ -27,34 +28,81 @@ function getMessage(key: string): string {
 
 function Card() {
   const keys = Object.keys(data.wishes) as WishesKeys[];
+  const [inputName, setInputName] = useState("");
+  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setInputName(e.target.value);
+  }
+  const [searchParams, setSearchParams] = useSearchParams();
+  const name = searchParams.get("n");
+  const card = searchParams.get("c");
+  const datanum = card ? parseInt(card) : null;
 
-    const [searchParams, setSearchParams] = useSearchParams();
-    const name = searchParams.get("n");
-    const card = searchParams.get("c");
-    const datanum = card ? parseInt(card) : null;
+
+  async function handleShare() {
+  const input = document.getElementById("share-link") as HTMLInputElement;
+    const link = input.value + inputName
+    if (!navigator.share) {
+      alert("Not supported in your browser.");
+      return;
+    }
+    await navigator.share({
+      title: "Check this out!",
+      text: `Here is your gift by ${inputName}`,
+      url: link,
+    });
+  }
+
+  function copyToClipboard() {
+  const input = document.getElementById("share-link") as HTMLInputElement;
+  const link = input.value + inputName
+    navigator.clipboard.writeText(link)
+      .then(() => {
+        console.log("Text copied to clipboard:", link);
+      })
+      .catch((err) => {
+        console.error("Failed to copy text:", err);
+      });
+  }
   return (
     <div className="p-2">
       <Snowfall />
-      {!name || !card ? ( 
+      {!name || !card ? (
         <div className="glass w-11/12 h-5/6 md:w-1/2 overflow-y-auto">
           <p>Your Name</p>
-          <input type="text" className="w-full h-10 rounded-2xl text-black outline-none p-2 mb-3"/>
+          <input
+            type="text"
+            className="w-full h-10 rounded-2xl text-black outline-none p-2 mb-3"
+          />
           <p>Recipient Name</p>
-          <input type="text"  className="w-full h-10 rounded-2xl text-black outline-none p-2 mb-3"/>
+          <input
+          onChange={handleNameChange}
+            type="text"
+            className="w-full h-10 rounded-2xl text-black outline-none p-2 mb-3"
+          />
           <p>Choose a Wish</p>
           {keys.map((item) => (
-        <div key={item}>
-          <Accordion title={item} content={data.wishes[item]}/>
-        </div>
-      ))}
-      <div className="w-full flex gap-4 justify-end items-end align-bottom">
-            <button className="bg-black px-6 py-2 rounded-2xl ">Share Link</button>
-            <button className="bg-black px-6 py-2 rounded-2xl ">Copy Link</button>
+            <div key={item}>
+              <Accordion title={item} content={data.wishes[item]} />
             </div>
-      </div> 
-      ) : 
-      <ChristmasCard data={`${getMessage(card)}`} name={name} />}
-
+          ))}
+          <input
+            type="text"
+            disabled
+            className="w-full h-12 mb-2 rounded"
+            id="share-link"
+          />
+          <div className="w-full flex gap-4 justify-end items-end align-bottom">
+            <button className="bg-black px-6 py-2 rounded-2xl " onClick={handleShare}>
+              Share Link
+            </button>
+            <button className="bg-black px-6 py-2 rounded-2xl " onClick={() => copyToClipboard()}>
+              Copy Link
+            </button>
+          </div>
+        </div>
+      ) : (
+        <ChristmasCard data={`${getMessage(card)}`} name={name} />
+      )}
     </div>
   );
 }
