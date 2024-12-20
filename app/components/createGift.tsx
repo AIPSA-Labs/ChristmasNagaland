@@ -19,6 +19,13 @@ function GiftCreation() {
         inputRec.trim() !== ""
       ) {
         setPage("select");
+      } else {
+        if (inputRec.trim( ) == '') {
+          alert('No data given')
+        }
+        if (!client.authStore.isValid) {
+          alert('Invalid login data')
+        }
       }
     }
   }
@@ -50,6 +57,7 @@ function GiftCreation() {
     const authData = await client
       .collection("users")
       .authWithOAuth2({ provider: "google" });
+      window.location.reload();
   };
 
   return (
