@@ -6,8 +6,6 @@ import sectionsData from "~/lib/offers";
 function GiftCreation() {
   const [page, setPage] = useState("init");
   const [offer, setOffer] = useState(0);
-  const [inputName, setInputName] = useState("");
-  const [inputNumber, setInputNumber] = useState("");
   const [inputRec, setInputRec] = useState("");
 
   function handleRecChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -17,8 +15,7 @@ function GiftCreation() {
   function changePage() {
     if (page === "init") {
       if (
-        inputName.trim() !== "" &&
-        inputNumber.trim() !== "" &&
+       client.authStore.isValid &&
         inputRec.trim() !== ""
       ) {
         setPage("select");
@@ -28,14 +25,23 @@ function GiftCreation() {
 
   async function handleShare() {
     const origin = window.location.origin;
-    const link = `${origin}/gift?n=${inputName}&g=${offer}`;
+    
     if (!navigator.share) {
       alert("Not supported in your browser.");
       return;
     }
+    const record = client.collection('gift').create({
+      gift : offer,
+      name : client.authStore.record?.name,
+      reciever : inputRec
+    })
+    const id = (await record).id
+    const link = `${origin}/gift?g=${id}`;
     await navigator.share({
       title: "Check this out!",
-      text: `Here is your gift by ${inputName}`,
+      text : `🎉 Here is your gift from ${client.authStore.record?.name}! 🎁 
+      We hope you enjoy this special token of appreciation. 
+      Stay tuned for more surprises and exciting offers!`,
       url: link,
     });
   }
@@ -52,18 +58,25 @@ function GiftCreation() {
       <div className="overflow-hidden h-2/3 w-11/12 md:w-1/2 glass fixed p-2 flex justify-center align-middle items-center flex-col">
         {page === "init" && (
           <div className="flex flex-col w-full justify-center md:items-center">
-            <label htmlFor="name">Person Name</label>
-            <input
-              type="text"
-              id="name"
-              value={inputRec}
-              onChange={handleRecChange}
-              className="outline-none h-10 w-full md:w-1/2 rounded-2xl text-black p-2"
-            />
+                       {client.authStore.isValid ? 
+            <div>
+         <div className="text-center mt-6">
+  <p className="text-xl font-semibold text-gray-700">
+    Dear <span className="text-white font-bold">{client.authStore.record?.name}</span>,
+  </p>
+  <h2 className="text-2xl font-bold text-white mt-4">
+    Create Your Gift 🎁
+  </h2>
+  <p className="text-yellow-200 mt-2">
+    Unlock special surprises and rewards for your friends
+  </p>
+</div>
+
+            </div> :
             <button
-            onClick={handleLogin}
+              onClick={handleLogin}
               type="button"
-              className="text-white bg-black hover:bg-gray-500/65 mt-4 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2"
+              className="text-white bg-black hover:bg-gray-500/65 mt-4 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 "
             >
               <svg
                 className="w-4 h-4 me-2"
@@ -80,11 +93,21 @@ function GiftCreation() {
               </svg>
               Sign in with Google
             </button>
+}
+            <label htmlFor="name">Person Name</label>
+            <input
+              type="text"
+              id="name"
+              value={inputRec}
+              onChange={handleRecChange}
+              className="outline-none h-10 w-full md:w-1/2 rounded-2xl text-black p-2"
+            />
+ 
             <button
               onClick={changePage}
               className=" mt-4 w-1/2 bg-black px-10 py-2 rounded-full active:bg-white active:text-black"
             >
-              Next{" "}
+              <p>Next</p>
             </button>
           </div>
         )}
@@ -114,7 +137,7 @@ function GiftCreation() {
               (Confirm)
             </p>
             <p>Your Name</p>
-            <p className="text-xl font-bold">{inputName}</p>
+            <p className="text-xl font-bold">{client.authStore.record?.name}</p>
             <p>Reciever Name</p>
             <p className="text-xl font-bold">{inputRec}</p>
             <p>Gift</p>
@@ -122,7 +145,7 @@ function GiftCreation() {
             <p>{data[offer].description}</p>
             <div className="w-full flex justify-end items-end font-bold">
               <button
-                onClick={handleShare}
+                onClick={() => handleShare()}
                 className="bg-black px-6 py-2 mt-4 rounded-full"
               >
                 Share Your Link
