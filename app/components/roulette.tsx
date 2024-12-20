@@ -10,7 +10,7 @@ function LuckyDraw() {
         width={80}
         className="fixed top-1/4 md:top-3 left-1/2 transform -translate-x-1/2 z-10 -rotate-45 "
       />
-    <Circle sections={8}/>
+    <Circle sections={7}/>
   </div> );
 }
 
