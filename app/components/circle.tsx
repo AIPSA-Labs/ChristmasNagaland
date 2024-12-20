@@ -1,45 +1,7 @@
 import React, { useState } from "react";
 import Snowfall from "react-snowfall";
 import getContact from "~/lib/contact";
-
-const sectionsData = [
-  {
-    color: "rgb(255, 99, 132)",
-    text: "Prize 1",
-    prize: "20K Off on Certificate in Early Childhood Care training course",
-  },
-  {
-    color: "rgb(255, 205, 86)",
-    text: "Prize 2",
-    prize: "Tuition fee and Study Material free",
-  },
-  {
-    color: "rgb(75, 192, 192)",
-    text: "Prize 3",
-    prize: "10K Off on all courses",
-  },
-  {
-    color: "rgb(153, 102, 255)",
-    text: "Prize 4",
-    prize: "Better luck Next time",
-  },
-  {
-    color: "rgb(255, 159, 64)",
-    text: "Prize 5",
-    prize: "25K off on CNTT Course",
-  },
-  {
-    color: "rgb(255, 182, 193)",
-    text: "Prize 6",
-    prize: "7499Rs for ICCM Course",
-  },
-  {
-    color: "rgb(34, 193, 195)",
-    text: "Prize 7",
-    prize:
-      "Certificate in early childhood care at just Rs 50K with guaranteed job",
-  },
-];
+import sectionsData from "~/lib/offers";
 
 interface CircleProps {
   sections: number;

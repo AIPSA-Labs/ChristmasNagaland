@@ -32,11 +32,9 @@ function Card() {
   function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputName(e.target.value);
   }
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const name = searchParams.get("n");
   const card = searchParams.get("c");
-  const datanum = card ? parseInt(card) : null;
-
 
   async function handleShare() {
   const input = document.getElementById("share-link") as HTMLInputElement;

@@ -2,6 +2,7 @@ import { useSearchParams } from "@remix-run/react";
 import Snowfall from "react-snowfall";
 import GiftCreation from "~/components/createGift";
 import "../styles/gift.css";
+import sectionsData from "~/lib/offers";
 
 function Gift() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,8 +27,8 @@ function Gift() {
               <div className="topTriangle"></div>
             </div> 
             <div className="card">
-              <div className="title1">{data.montessoriOffers[datanum ? datanum : 0].title}</div>
-              <div className="text-lg md:text-2xl">{data.montessoriOffers[datanum ? datanum : 0].description}</div>
+              <div className="title1">{data[datanum ? datanum : 0].title}</div>
+              <div className="text-lg md:text-2xl">{data[datanum ? datanum : 0].description}</div>
             </div>
             <div className="front_container">
               <div className="front p-6">
@@ -38,12 +39,12 @@ function Gift() {
             </div>
           </div>
           <div className="fixed right-0 left-0 bottom-28 w-full flex justify-center px-2 md:px-[20%]">
-          <button className="goldenButton">
+          <a href="/claim" className="goldenButton">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
         <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
     </svg>
     Claim your gift
-</button>
+</a>
           </div>
         </div>
       )}
@@ -53,75 +54,4 @@ function Gift() {
 
 export default Gift;
 
-const data = {
-  montessoriOffers: [
-    {
-      id: "1",
-      title: "Early Bird Discount",
-      description:
-        "Get 20% off on Montessori teacher training courses for early registrations.",
-      validFrom: "2024-12-01",
-      validTo: "2024-12-31",
-      targetAudience: ["Aspiring Montessori Teachers", "Parents"],
-      additionalBenefits: [
-        "Free teaching materials",
-        "Access to online workshops",
-      ],
-    },
-    {
-      id: "2",
-      title: "Refer and Earn",
-      description:
-        "Refer a friend to enroll in our Montessori program and earn a 10% discount on your next course.",
-      validFrom: "2024-12-05",
-      validTo: "2025-01-15",
-      targetAudience: ["Existing Students", "Parents"],
-      additionalBenefits: [
-        "Exclusive webinars on child development",
-        "Referral certificates",
-      ],
-    },
-    {
-      id: "3",
-      title: "Holiday Special Offer",
-      description:
-        "Enroll during the holiday season and get a free Montessori toolkit worth $100.",
-      validFrom: "2024-12-15",
-      validTo: "2025-01-05",
-      targetAudience: ["Teachers", "Institutions", "Parents"],
-      additionalBenefits: [
-        "Complimentary 1-year membership to Montessori resources",
-        "Access to premium study materials",
-      ],
-    },
-    {
-      id: "4",
-      title: "Group Enrollment Offer",
-      description:
-        "Enroll in groups of 5 or more and receive a 15% discount for all members.",
-      validFrom: "2024-11-20",
-      validTo: "2025-02-28",
-      targetAudience: ["Educational Institutions", "Parent Groups"],
-      additionalBenefits: [
-        "Customizable Montessori workshops",
-        "Dedicated mentor support",
-      ],
-    },
-    {
-      id: "5",
-      title: "Scholarship Opportunity",
-      description:
-        "Apply for our Montessori education scholarship and get up to 50% off on course fees.",
-      validFrom: "2024-12-01",
-      validTo: "2024-12-30",
-      targetAudience: [
-        "Economically Disadvantaged Individuals",
-        "Rural Teachers",
-      ],
-      additionalBenefits: [
-        "Guided scholarship application support",
-        "Free career counseling",
-      ],
-    },
-  ],
-};
+const data = sectionsData
