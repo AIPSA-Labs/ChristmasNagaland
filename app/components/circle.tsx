@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Snowfall from "react-snowfall";
+import getContact from "~/lib/contact";
 
 const sectionsData = [
   {
@@ -44,6 +45,7 @@ interface CircleProps {
   sections: number;
 }
 
+
 const Circle: React.FC<CircleProps> = ({ sections }) => {
   const sectionCount = Math.min(sections, 24);
   const sectionData = sectionsData.slice(0, sectionCount);
@@ -66,6 +68,8 @@ const Circle: React.FC<CircleProps> = ({ sections }) => {
       setPrize(prize);
     }, 3000);
   };
+
+  const number = getContact()
 
   return (
     <div>
@@ -116,13 +120,17 @@ const Circle: React.FC<CircleProps> = ({ sections }) => {
                 You have won:{" "}
                 <span className="text-rose-500 font-bold">{prize}</span>
               </p>
+              <div className="flex justify-around gap-4">
               <a
                 href=""
                 className="inline-block bg-rose-500 hover:bg-rose-600 text-white font-medium px-6 py-3 rounded-lg shadow transition duration-200"
               >
                 Claim Your Prize
               </a>
+              <a href={`https://wa.me/${number}?text=Hi! 🎉 \n I’m excited to share that I won a prize from your lucky draw! 🏆 \n Thank you so much for the opportunity. Please let me know how I can claim it. \n Looking forward to hearing from you!`} className="inline-block bg-black hover:bg-rose-600 text-white font-medium px-6 py-3 rounded-lg shadow transition duration-200">Whatsapp Us</a>
+              </div>
               <Snowfall color="blue" snowflakeCount={30} />
+              <a className="text-blue-500 underline mt-2" href="https://allindiaprivateschools.org">Learn More</a>
             </div>
           </div>
         )}
