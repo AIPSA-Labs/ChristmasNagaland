@@ -50,7 +50,7 @@ export default function Index() {
       ></iframe>
       <div className="flex justify-center">
         <a href="/luckydraw" className="btn px-8 py-2">
-          <strong>Get your gift</strong>
+          <strong>Grab Your Offer</strong>
           <div id="container-stars">
             <div id="stars"></div>
           </div>
