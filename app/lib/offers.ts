@@ -58,4 +58,8 @@ const sectionsData = [
   ];
   
   export default sectionsData;
-  
+
+
+export const getDataById = (id: string) => {
+    return sectionsData.find((section) => section.id === id);
+  };

@@ -8,26 +8,25 @@ import { useEffect, useState } from "react";
 
 function Gift() {
   const [searchParams] = useSearchParams();
-  const gift = searchParams.get("g") || ""; // Retrieve "g" from the URL params
-  const [giftData, setGiftData] = useState<any | null>(null); // Store fetched gift data
+  const gift = searchParams.get("g") || "";
+  const [giftData, setGiftData] = useState<any | null>(null);
 
-  // Fetch the gift data when the component mounts or gift param changes
+
   useEffect(() => {
     async function fetchGiftData() {
       try {
         if (gift) {
           const value = await client.collection("gift").getOne(gift);
-          setGiftData(value); // Set the fetched data
+          setGiftData(value);
         }
       } catch (error) {
         console.error("Error fetching gift data:", error);
-        setGiftData(null); // Handle errors gracefully
+        setGiftData(null); 
       }
     }
     fetchGiftData();
   }, [gift]);
 
-  // Determine the section data to use based on fetched gift data
   const datanum = giftData?.gift ? parseInt(giftData.gift) : 0;
   const selectedData = datanum >= 0 && datanum < sectionsData.length
     ? sectionsData[datanum]
