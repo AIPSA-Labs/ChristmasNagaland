@@ -5,28 +5,73 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
-
 import "./tailwind.css";
 
-export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+ID+Guides&family=Quicksand:wght@300..700&display=swap",
-  },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
+import { LinksFunction, MetaFunction } from "@remix-run/node";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "icon",
+      href: "/christmasLogo.png",
+      type: "image/png",
+    },
+  ]
+}
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Gift For You from AIPSA" },
+    {
+      name: "description",
+      content: "Celebrate Christmas with exclusive gifts from AIPSA. Claim your reward now!",
+    },
+    {
+      property: "og:title",
+      content: "A Special Christmas Gift Awaits You!",
+    },
+    {
+      property: "og:description",
+      content: "Join AIPSA's holiday celebration and receive amazing Christmas offers!",
+    },
+    {
+      property: "og:image",
+      content: "https://test.mehub.in/christmasLogo.png",  // Full URL to your image
+    },
+    {
+      property: "og:image:width",
+      content: "1200",
+    },
+    {
+      property: "og:image:height",
+      content: "630",
+    },
+    {
+      property: "og:url",
+      content: "https://test.mehub.in",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "A Special Christmas Gift from AIPSA",
+    },
+    {
+      name: "twitter:description",
+      content: "Celebrate the holiday season with exclusive rewards. Click to claim!",
+    },
+    {
+      name: "twitter:image",
+      content: "https://test.mehub.in/christmasLogo.png",
+    },
+  ];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
