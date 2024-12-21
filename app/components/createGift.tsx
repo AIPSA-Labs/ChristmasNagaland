@@ -82,6 +82,8 @@ function GiftCreation() {
                 </div>
               </div>
             ) : (
+              <>
+              <p>First login to Continue</p>
               <button
                 onClick={handleLogin}
                 type="button"
@@ -102,6 +104,7 @@ function GiftCreation() {
                 </svg>
                 Sign in with Google
               </button>
+              </>
             )}
             <label htmlFor="name">Person Name</label>
             <input
