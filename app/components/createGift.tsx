@@ -67,7 +67,7 @@ function GiftCreation() {
               <div>
                 <div className="text-center mt-6">
                   <p className="text-xl font-semibold text-gray-700">
-                    Dear{" "}
+                    Dear
                     <span className="text-white font-bold">
                       {client.authStore.record?.name}
                     </span>
@@ -83,27 +83,27 @@ function GiftCreation() {
               </div>
             ) : (
               <>
-              <p>First login to Continue</p>
-              <button
-                onClick={handleLogin}
-                type="button"
-                className="text-white bg-black hover:bg-gray-500/65 mt-4 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 "
-              >
-                <svg
-                  className="w-4 h-4 me-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 19"
+                <p>First login to Continue</p>
+                <button
+                  onClick={handleLogin}
+                  type="button"
+                  className="text-white bg-black hover:bg-gray-500/65 mt-4 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 "
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                Sign in with Google
-              </button>
+                  <svg
+                    className="w-4 h-4 me-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 18 19"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  Sign in with Google
+                </button>
               </>
             )}
             <label htmlFor="name">Person Name</label>
@@ -126,18 +126,20 @@ function GiftCreation() {
         {page === "select" && offer === 0 && (
           <div className="w-full overflow-hidden overflow-y-scroll p-2">
             <p className="font-bold text-lg">Select Your Gift</p>
-            {data.map((items) => (
-              <div
-                className="w-full outline rounded-2xl p-2 h-40 cursor-pointer flex mt-4"
-                onClick={() => setOffer(parseInt(items.id))}
-              >
-                <img src="/dec.png" alt="decorator" className="h-36 mr-2" />
-                <div>
-                  <p className="font-bold text-2xl">{items.title}</p>
-                  <p> {items.description} </p>
+            {data
+              .filter((item) => parseInt(item.id) !== 4)
+              .map((items) => (
+                <div
+                  className="w-full outline rounded-2xl p-2 h-40 cursor-pointer flex mt-4"
+                  onClick={() => setOffer(parseInt(items.id))}
+                >
+                  <img src="/dec.png" alt="decorator" className="h-36 mr-2" />
+                  <div>
+                    <p className="font-bold text-2xl">{items.title}</p>
+                    <p> {items.description} </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         )}
 
