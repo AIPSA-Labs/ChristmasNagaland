@@ -19,7 +19,7 @@ export default function Index() {
       <img src="/santa.png" alt="santa" className="moving md:w-1/2" />
       <div className="flex justify-center items-center mt-10 flex-col">
         <img src="/Logo.png" alt="logo" className="h-36 w-36" />
-        <p className="text-8xl font-bold text-white text-center font-script">
+        <p className="text-6xl font-bold text-white text-center font-script">
           Merry Christmas
         </p>
         <p className="text-center text-white font-bold stroke-black stroke-2 p-4">
@@ -49,8 +49,8 @@ export default function Index() {
         id="iframeAudio"
       ></iframe>
       <div className="flex justify-center">
-        <a href="/luckydraw" className="btn p-2">
-          <strong>Participate Lucky Draw</strong>
+        <a href="/luckydraw" className="btn px-8 py-2">
+          <strong>Get your gift</strong>
           <div id="container-stars">
             <div id="stars"></div>
           </div>
