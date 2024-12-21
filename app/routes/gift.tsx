@@ -69,7 +69,7 @@ function Gift() {
           </div>
 
           <div className="fixed right-0 left-0 bottom-28 w-full flex justify-center px-2 md:px-[20%]">
-            <a href="/claim" className="goldenButton">
+            <a href={`/claim?g=${datanum}`} className="goldenButton">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
                 <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
               </svg>
