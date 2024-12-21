@@ -1,7 +1,6 @@
 
 const contact = [
-    '+918330816641',
-    '+917025833332'
+    '+918787308402'
 ]
 
 function getRandomItem<T>(array: T[]): T {
