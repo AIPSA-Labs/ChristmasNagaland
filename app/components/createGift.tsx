@@ -34,12 +34,12 @@ function GiftCreation() {
       alert("Not supported in your browser.");
       return;
     }
-    const record = client.collection("gift").create({
+    const record = await client.collection("gift").create({
       gift: offer,
       name: client.authStore.record?.name,
       reciever: inputRec,
     });
-    const id = (await record).id;
+    const id = record.id;
     const link = `${origin}/gift?g=${id}`;
     await navigator.share({
       title: "Check this out!",
