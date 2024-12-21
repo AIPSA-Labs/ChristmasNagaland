@@ -36,7 +36,7 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:image",
-      content: "https://test.mehub.in/christmasLogo.png",  // Full URL to your image
+      content: "https://gift.allindiaprivateschools.org/christmasLogo.png",  // Full URL to your image
     },
     {
       property: "og:image:width",
@@ -48,7 +48,7 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:url",
-      content: "https://test.mehub.in",
+      content: "https://gift.allindiaprivateschools.org",
     },
     {
       property: "og:type",
@@ -68,7 +68,7 @@ export const meta: MetaFunction = () => {
     },
     {
       name: "twitter:image",
-      content: "https://test.mehub.in/christmasLogo.png",
+      content: "https://gift.allindiaprivateschools.org/christmasLogo.png",
     },
   ];
 };
