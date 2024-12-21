@@ -27,12 +27,18 @@ export default function Index() {
           with peace, love, and happiness. <br /> Let’s continue spreading the
           light of education and the spirit of togetherness.
         </p>
-        <a
-          href="https://allindiaprivateschools.org"
-          className="text-white px-6 pt-2 pb-3 active:text-black active:bg-blue-200 bg-black rounded-full"
-        >
-          Learn More
+        <a href="/luckydraw" className="btn px-8 py-2">
+          <strong>Grab Your Offer</strong>
+          <div id="container-stars">
+            <div id="stars"></div>
+          </div>
+
+          <div id="glow">
+            <div className="circle"></div>
+            <div className="circle"></div>
+          </div>
         </a>
+       
         <div className="text-white m-4 flex justify-evenly w-full p-4 md:w-1/2">
           <a href="/gift" className="px-6 bg-black pb-3 pt-2 rounded-full">
             Send Gift
@@ -49,16 +55,11 @@ export default function Index() {
         id="iframeAudio"
       ></iframe>
       <div className="flex justify-center">
-        <a href="/luckydraw" className="btn px-8 py-2">
-          <strong>Grab Your Offer</strong>
-          <div id="container-stars">
-            <div id="stars"></div>
-          </div>
-
-          <div id="glow">
-            <div className="circle"></div>
-            <div className="circle"></div>
-          </div>
+      <a
+          href="https://allindiaprivateschools.org"
+          className="text-white px-6 pt-2 pb-3 active:text-black active:bg-blue-200 bg-black rounded-full"
+        >
+          Learn More
         </a>
       </div>
     </div>

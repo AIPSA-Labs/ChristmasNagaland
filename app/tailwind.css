@@ -21,6 +21,7 @@ body {
   position: fixed;
   top: 50%;
   left: 0;
+  z-index: 20;
   transform: translateY(-50%);
   border-radius: 10px;
   animation: moveHorizontally 30s linear infinite;
